@@ -73,8 +73,8 @@
          * (e.g.: when table has only one row to show)
          */
         service.positionElement = function(element){
-            var elementToPosition = element.parent().find('.mdt-column-chooser-button');
-            var elementPosition = elementToPosition.offset();
+            var elementToPosition = $(element).parent().find('.mdt-column-chooser-button');
+            var elementPosition = $(elementToPosition).offset();
             var rt = ($(window).width() - (elementPosition.left + elementToPosition.outerWidth()));
 
             var targetMetrics = {
@@ -82,10 +82,10 @@
                 right: rt
             };
 
-            element.css('position', 'absolute');
-            element.detach().appendTo('body');
+            $(element).css('position', 'absolute');
+            $(element).detach().appendTo('body');
 
-            element.css({
+            $(element).css({
                 top: targetMetrics.top + 'px',
                 right: targetMetrics.right + 'px',
                 position:'absolute'
